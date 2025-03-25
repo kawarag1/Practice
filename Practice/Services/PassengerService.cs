@@ -10,28 +10,6 @@ namespace Practice.Services
 {
     internal class PassengerService
     {
-        public string name { get; set; }
-        public string surname { get; set; }
-        public string? patronymic { get; set; }
-        public DateOnly birthdate { get; set; }
-        public int passportID { get; set; }
-        public string login {  get; set; }
-        public string password { get; set; }
-
-        private readonly PracticeContext practiceContext;
-
-        public PassengerService(string name, string surname, string? patronymic, DateOnly birthdate, int passportID, string login, string password, PracticeContext practiceContext) 
-        {
-            this.name = name;
-            this.surname = surname;
-            this.birthdate = birthdate;
-            this.passportID = passportID;
-            this.login = login;
-            this.password = password;
-            this.practiceContext = practiceContext;
-        }
-
-
         public static void CheckLogin(string login)
         {
             using (PracticeContext context = new PracticeContext())
