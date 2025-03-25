@@ -16,6 +16,7 @@ namespace Practice.Services
                 return context.Employees.FirstOrDefault(x => x.Login == login && x.Password == password);
             }
         }
+
         public async static void Registration(Employee newEmployee)
         {
             using (PracticeContext context = new PracticeContext())

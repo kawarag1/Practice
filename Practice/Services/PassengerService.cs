@@ -25,6 +25,7 @@ namespace Practice.Services
                 }
             }
         }
+
         public static Passenger? Authorization(string login, string password)
         {
             using (PracticeContext context = new PracticeContext())
