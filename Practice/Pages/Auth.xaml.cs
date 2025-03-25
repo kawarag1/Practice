@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Practice.Models;
+using Practice.Services;
 
 namespace Practice.Pages
 {
@@ -28,17 +29,15 @@ namespace Practice.Pages
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
-            using (PracticeContext context = new PracticeContext()) 
+            try
             {
-                string login = loginbox.Text;
-                string password = pwdbox.Password;
-                var user = context.Passengers.Where(x => x.Login == login && x.Password == password).FirstOrDefault();
-                var staff = context.Employees.Where(x => x.Login == login && x.Password == password).FirstOrDefault();
-                if (user == null && staff == null)
+                var pass = PassengerService.Authorization(loginbox.Text, pwdbox.Password);
+                var staff = EmployeeService.Authorization(loginbox.Text, pwdbox.Password);
+                if (pass == null && staff == null)
                 {
                     MessageBox.Show("Неверный логин или пароль");
                 }
-                else if (user != null)
+                else if (pass != null)
                 {
                     NavigationService.Navigate(new PassengerMain());
                 }
@@ -47,6 +46,11 @@ namespace Practice.Pages
                     NavigationService.Navigate(new StaffMain());
                 }
             }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void Reg_MouseDown(object sender, MouseButtonEventArgs e)

@@ -43,14 +43,6 @@ namespace Practice
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            //if (FrmMain.NavigationService.CanGoBack)
-            //{
-            //    if (navigationHistory.Count > 1)
-            //    {
-            //        navigationHistory.Pop();
-            //        UriKind.Relative
-            //    }
-            //}
             FrmMain.GoBack();
         }
 

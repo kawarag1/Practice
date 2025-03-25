@@ -24,11 +24,13 @@
             <TextBox x:Name="patronymicbox" Height="20" Width="240"/>
             <TextBlock Text="Дата рождения"/>
             <TextBox x:Name="birthdatebox" Height="20" Width="240" Text="{Binding Date, StringFormat=yyyy-MM-dd, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Серия и номер паспорта"/>
+            <TextBox x:Name="passportbox" Height="20" Width="240" TextChanged="passportbox_TextChanged"/>
             <TextBlock Text="Логин"/>
             <TextBox x:Name="loginbox" Height="20" Width="240"/>
             <TextBlock Text="Пароль"/>
             <PasswordBox x:Name="pwdbox" Height="20" Width="240"/>
-            <Button x:Name="btnEnter" Margin="5 15 5 5" Content="Войти" Click="btnEnter_Click"/>
+            <Button x:Name="btnEnter" Margin="5 15 5 5" Content="Зарегистрироваться" Click="RegButtonClick" Width="140"/>
         </StackPanel>
     </Grid>
 </Page>
