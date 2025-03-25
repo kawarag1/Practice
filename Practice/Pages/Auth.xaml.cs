@@ -31,7 +31,7 @@ namespace Practice.Pages
             using (PracticeContext context = new PracticeContext()) 
             {
                 string login = loginbox.Text;
-                string password = pwdbox.Password.ToString();
+                string password = pwdbox.Password;
                 var user = context.Passengers.Where(x => x.Login == login && x.Password == password).FirstOrDefault();
                 var staff = context.Employees.Where(x => x.Login == login && x.Password == password).FirstOrDefault();
                 if (user == null && staff == null)

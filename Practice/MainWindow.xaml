@@ -19,6 +19,6 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="btnBack" HorizontalAlignment="Right" Content="Назад" Grid.Column="1" Click="btnBack_Click"/>
         </Grid>
-        <Frame x:Name="FrmMain" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden" ContentRendered="FrmMain_ContentRendered"/>
+        <Frame x:Name="FrmMain" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden" ContentRendered="FrmMain_ContentRendered" Navigated="FrmMain_Navigated"/>
     </Grid>
 </Window>
