@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Practice.Services;
 
 namespace Practice.Pages
 {
@@ -23,6 +24,13 @@ namespace Practice.Pages
         public PassengerMain()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+
+        private void LoadData()
+        {
+            ViewTrips.ItemsSource = TripService.Trip();
         }
     }
 }
