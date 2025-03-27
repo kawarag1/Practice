@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Practice.Models;
 
 namespace Practice.Services
@@ -30,7 +31,17 @@ namespace Practice.Services
         {
             using (PracticeContext context = new PracticeContext())
             {
-                return context.Passengers.FirstOrDefault(x => x.Login == login && x.Password == password);
+                return context.Passengers.Where(x => x.Login == login && x.Password == password)
+                    .Include(p => p.Tickets)
+                    .ThenInclude(x => x.Trip)
+                    .ThenInclude(x => x.RouteNavigation)
+                    .Include(p => p.Tickets)
+                    .ThenInclude(x => x.Trip)
+                    .ThenInclude(x => x.Driver)
+                    .Include(p => p.Tickets)
+                    .ThenInclude(x => x.Trip)
+                    .ThenInclude(x => x.Bus)
+                    .FirstOrDefault();
             }
         }
 
@@ -42,6 +53,15 @@ namespace Practice.Services
                 await context.SaveChangesAsync();
             }
 
+        }
+
+        public async static void UpdateProfile(Passenger pass)
+        {
+            using (PracticeContext context = new PracticeContext())
+            {
+                context.Passengers.Update(pass);
+                await context.SaveChangesAsync();
+            }
         }
     }
 }

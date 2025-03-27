@@ -24,12 +24,10 @@ namespace Practice.Pages
     /// </summary>
     public partial class PassengerMain : Page
     {
-        Passenger pass;
-        public PassengerMain(Passenger passenger)
+        public PassengerMain()
         {
             InitializeComponent();
             LoadData();
-            pass = passenger;
         }
 
 
@@ -47,7 +45,7 @@ namespace Practice.Pages
             else
             {
                 Trip selectedtrip = (Trip)ViewTrips.SelectedItem;
-                Purchase purchase = new Purchase(pass, selectedtrip);
+                Purchase purchase = new Purchase(selectedtrip);
                 purchase.ShowDialog();
             }
         }
@@ -55,6 +53,11 @@ namespace Practice.Pages
         private void ViewTrips_Selected(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PassengerProfile());
         }
     }
 }

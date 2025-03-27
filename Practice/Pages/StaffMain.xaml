@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Practice.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="StaffMain" Background="White">
+      Title="StaffMain" Background="White" MinHeight="450" MinWidth="800">
 
     <Grid>
         

@@ -39,11 +39,13 @@ namespace Practice.Pages
                 }
                 else if (pass != null)
                 {
-                    NavigationService.Navigate(new PassengerMain(pass));
+                    NavigationService.Navigate(new PassengerMain());
+                    UserHelper.passenger = pass;
                 }
                 else
                 {
                     NavigationService.Navigate(new StaffMain());
+                    UserHelper.employee = staff;
                 }
             }
             catch (Exception ex) 

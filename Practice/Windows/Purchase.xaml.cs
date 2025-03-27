@@ -21,12 +21,10 @@ namespace Practice.Windows
     /// </summary>
     public partial class Purchase : Window
     {
-        Passenger passenger;
         Trip selectedTrip;
-        public Purchase(Passenger pass, Trip trip)
+        public Purchase(Trip trip)
         {
             InitializeComponent();
-            passenger = pass;
             selectedTrip = trip;
             LoadData();
         }
@@ -35,6 +33,7 @@ namespace Practice.Windows
         {
             string route = $"{selectedTrip.RouteNavigation.StartCity} - {selectedTrip.RouteNavigation.EndCity}";
             RouteBox.Text = route;
+            var passenger = UserHelper.passenger;
 
             NameBox.Text = passenger.Name;
             SurnameBox.Text = passenger.Surname;
@@ -44,6 +43,7 @@ namespace Practice.Windows
 
         private void PurchaseBtn_Click(object sender, RoutedEventArgs e)
         {
+            var passenger = UserHelper.passenger;
             Ticket newTicket = new Ticket();
             newTicket.PassengerId = passenger.Id;
             newTicket.TripId = selectedTrip.Id;

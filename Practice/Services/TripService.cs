@@ -22,6 +22,6 @@ namespace Practice.Services
                     .OrderBy(t => t.Id)
                     .ToList();
             }
-        }
+        }        
     }
 }

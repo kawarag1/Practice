@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practice.Windows"
         mc:Ignorable="d"
-        Title="Purchase" Height="300" Width="400">
+        Title="Purchase" Height="300" Width="400" MinHeight="300" MinWidth="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
