@@ -38,16 +38,24 @@ namespace Practice.Pages
 
         private void ButBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ViewTrips.SelectedItem == null)
+            try
             {
-                MessageBox.Show("Вы не выбрали билет!");
+                if (ViewTrips.SelectedItem == null)
+                {
+                    MessageBox.Show("Вы не выбрали билет!");
+                }
+                else
+                {
+                    Trip selectedtrip = (Trip)ViewTrips.SelectedItem;
+                    Purchase purchase = new Purchase(selectedtrip);
+                    purchase.ShowDialog();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Trip selectedtrip = (Trip)ViewTrips.SelectedItem;
-                Purchase purchase = new Purchase(selectedtrip);
-                purchase.ShowDialog();
+                MessageBox.Show(ex.Message);
             }
+            
         }
 
         private void ViewTrips_Selected(object sender, RoutedEventArgs e)

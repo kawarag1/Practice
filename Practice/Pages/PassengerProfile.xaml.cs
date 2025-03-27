@@ -41,19 +41,36 @@ namespace Practice.Pages
 
         private void LoadData()
         {
-            var passenger = UserHelper.passenger;
-            NameBox.Text = passenger.Name;
-            SurnameBox.Text = passenger.Surname;
-            PatronymicBox.Text = passenger.Patronymic;
-            PassportBox.Text = passenger.PassportId.ToString();
-            LoginBox.Text = passenger.Login;
-            PasswordUserBox.Password = passenger.Password;
-            VisiblePassword.Text = passenger.Password;
+            try
+            {
+                var passenger = UserHelper.passenger;
+                NameBox.Text = passenger.Name;
+                SurnameBox.Text = passenger.Surname;
+                PatronymicBox.Text = passenger.Patronymic;
+                PassportBox.Text = passenger.PassportId.ToString();
+                LoginBox.Text = passenger.Login;
+                PasswordUserBox.Password = passenger.Password;
+                VisiblePassword.Text = passenger.Password;
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void UpdateProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            PassengerService.UpdateProfile(UserHelper.passenger);
+            try
+            {
+                PassengerService.UpdateProfile(UserHelper.passenger);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            
         }
 
         private void CheckPassword_Click(object sender, RoutedEventArgs e)

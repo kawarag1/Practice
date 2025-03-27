@@ -31,35 +31,51 @@ namespace Practice.Windows
 
         public void LoadData()
         {
-            string route = $"{selectedTrip.RouteNavigation.StartCity} - {selectedTrip.RouteNavigation.EndCity}";
-            RouteBox.Text = route;
-            var passenger = UserHelper.passenger;
+            try
+            {
+                string route = $"{selectedTrip.RouteNavigation.StartCity} - {selectedTrip.RouteNavigation.EndCity}";
+                RouteBox.Text = route;
+                var passenger = UserHelper.passenger;
 
-            NameBox.Text = passenger.Name;
-            SurnameBox.Text = passenger.Surname;
-            PatronymicBox.Text = passenger.Patronymic;
-            PassportBox.Text = passenger.PassportId.ToString();
+                NameBox.Text = passenger.Name;
+                SurnameBox.Text = passenger.Surname;
+                PatronymicBox.Text = passenger.Patronymic;
+                PassportBox.Text = passenger.PassportId.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void PurchaseBtn_Click(object sender, RoutedEventArgs e)
         {
-            var passenger = UserHelper.passenger;
-            Ticket newTicket = new Ticket();
-            newTicket.PassengerId = passenger.Id;
-            newTicket.TripId = selectedTrip.Id;
-            newTicket.SeatNumber = SeatNumber.Text;
-            newTicket.Cost = 300;
-            if (Baggage.IsChecked == false)
+            try
             {
-                newTicket.Baggage = false;
+                var passenger = UserHelper.passenger;
+                Ticket newTicket = new Ticket();
+                newTicket.PassengerId = passenger.Id;
+                newTicket.TripId = selectedTrip.Id;
+                newTicket.SeatNumber = SeatNumber.Text;
+                newTicket.Cost = 300;
+                if (Baggage.IsChecked == false)
+                {
+                    newTicket.Baggage = false;
+                }
+                else
+                {
+                    newTicket.Baggage = true;
+                }
+                TicketService.CreateTicket(newTicket);
+                MessageBox.Show("Успешно!");
+                Close();
             }
-            else
+            catch (Exception ex)
             {
-                newTicket.Baggage = true;
+                MessageBox.Show(ex.Message);
             }
-            TicketService.CreateTicket(newTicket);
-            MessageBox.Show("Успешно!");
-            Close();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
