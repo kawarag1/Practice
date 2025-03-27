@@ -39,7 +39,7 @@ namespace Practice.Pages
                 }
                 else if (pass != null)
                 {
-                    NavigationService.Navigate(new PassengerMain());
+                    NavigationService.Navigate(new PassengerMain(pass));
                 }
                 else
                 {

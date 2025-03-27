@@ -1,0 +1,50 @@
+﻿<Window x:Class="Practice.Windows.Purchase"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice.Windows"
+        mc:Ignorable="d"
+        Title="Purchase" Height="300" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,0,144" Grid.RowSpan="2">
+            <TextBlock Text="Ваш маршрут:" Margin="0 10 0 0"/>
+            <TextBlock x:Name ="RouteBox" Text=""/>
+            <TextBlock Text="Цена билета:"/>
+            <TextBlock Text="300"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,0,144" Grid.RowSpan="2">
+            <TextBlock Text="Введите желаемое место:" Margin="0 10 0 0"/>
+            <TextBox x:Name="SeatNumber" Width="60" HorizontalAlignment="Left" Margin="10 0 0 0"/>
+            <TextBlock Text="Например: 54T"/>
+            <TextBlock Text="У вас будет с собой багаж?"/>
+            <CheckBox x:Name="Baggage"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBlock Text="Ваши персональные данные:"/>
+            <TextBlock x:Name="NameBox"/>
+            <TextBlock x:Name="SurnameBox"/>
+            <TextBlock x:Name="PatronymicBox"/>
+            <TextBlock x:Name="PassportBox"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Button x:Name="PurchaseBtn" Click="PurchaseBtn_Click" Content="Оформить"/>
+            <Button Content="Отменить" Click="Button_Click"/>
+        </StackPanel>
+        
+
+
+
+
+
+    </Grid>
+</Window>
