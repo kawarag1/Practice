@@ -49,6 +49,8 @@ namespace Practice.Pages
                 }
                 newpass.PassportId = Convert.ToInt64(passportbox.Text);
                 PassengerService.Registration(newpass);
+                UserHelper.passenger = newpass;
+                NavigationService.Navigate(new PassengerMain());
             }
             catch (Exception ex)
             {

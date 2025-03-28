@@ -24,7 +24,8 @@
             <TextBox x:Name="patronymicbox" Height="20" Width="240"/>
             <TextBlock Text="Дата рождения"/>
             <TextBox x:Name="birthdatebox" Height="20" Width="240" Text="{Binding Date, StringFormat=yyyy-MM-dd, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Серия и номер паспорта"/>
+            <TextBlock Text="Пример: 2025-12-12"/>
+            <TextBlock Text="Серия и номер паспорта" Margin="0 10 0 0"/>
             <TextBox x:Name="passportbox" Height="20" Width="240" TextChanged="passportbox_TextChanged"/>
             <TextBlock Text="Логин"/>
             <TextBox x:Name="loginbox" Height="20" Width="240"/>
