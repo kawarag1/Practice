@@ -79,7 +79,7 @@
 
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Button x:Name="CreateBtn" Click="UpdateBtn_Click" Content="Создать"/>
+            <Button x:Name="CreateBtn" Click="UpdateBtn_Click" Content="Обновить"/>
             <Button Content="Отменить" Click="Button_Click"/>
         </StackPanel>
     </Grid>
