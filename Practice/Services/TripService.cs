@@ -35,5 +35,23 @@ namespace Practice.Services
                 await context.SaveChangesAsync();
             }
         }
+
+        public async static void CreateTrip(Trip trip)
+        {
+            using (PracticeContext ctx = new PracticeContext())
+            {
+                ctx.Trips.Add(trip);
+                await ctx.SaveChangesAsync();
+            }
+        }
+
+        public async static void UpdateTrip(Trip trip)
+        {
+            using (PracticeContext context = new PracticeContext())
+            {
+                context.Trips.Update(trip);
+                await context.SaveChangesAsync();
+            }
+        }
     }
 }

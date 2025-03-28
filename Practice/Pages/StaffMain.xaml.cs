@@ -56,5 +56,25 @@ namespace Practice.Pages
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void CreateTrip_Click(object sender, RoutedEventArgs e)
+        {
+            CreateTripWindow window = new CreateTripWindow();
+            window.ShowDialog();
+        }
+
+        private void ChangeTrip_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewTrips.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите рейс для изменения!");
+            }
+            else
+            {
+                Trip trip = (Trip)ViewTrips.SelectedItem;
+                ChangeTripWindow window = new ChangeTripWindow(trip);
+                window.ShowDialog();
+            }
+        }
     }
 }

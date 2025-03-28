@@ -18,11 +18,15 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" Grid.Row="0" Margin="10">
+        <StackPanel Grid.Column="0" Grid.Row="0" Margin="10" Orientation="Vertical">
             <Button x:Name="CheckTickets" Content="Мои билеты" Click="CheckTickets_Click" HorizontalAlignment="Left" VerticalAlignment="Top" />
-            <Button x:Name="Quit" Content="Выйти из аккаунта" Click="Quit_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="140"/>
+            <Button x:Name="QuitBtn" Content="Выйти из аккаунта" Click="Quit_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="140"/>
             <Button x:Name="CancelTicket" Content="Отменить билет" Click="CancelTicket_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="140"/>
             <Button x:Name="UpdateBtn" Content="Обновить" Click="UpdateBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="140"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0" Margin="10" Orientation="Vertical">
+            <Button x:Name="DeleteAcc" Content="Удалить аккаунт" Click="DeleteAcc_Click" HorizontalAlignment="Right" VerticalAlignment="Top"  Width="140"/>
         </StackPanel>
         
         <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="PassengerTickets" Visibility="Hidden">

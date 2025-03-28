@@ -63,5 +63,14 @@ namespace Practice.Services
                 await context.SaveChangesAsync();
             }
         }
+        public async static void DeleteProfile(Passenger passenger)
+        {
+            using (PracticeContext context = new PracticeContext())
+            {
+                context.Passengers.Remove(passenger);
+                await context.Tickets.Where(t => t.PassengerId == passenger.Id).ExecuteDeleteAsync();
+                await context.SaveChangesAsync();
+            }
+        }
     }
 }

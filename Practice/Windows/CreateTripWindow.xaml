@@ -1,0 +1,86 @@
+﻿<Window x:Class="Practice.Windows.CreateTripWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice.Windows"
+        mc:Ignorable="d"
+        Title="CreateTripWindow" Height="350" Width="400" MinHeight="350" MinWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,0,144" Grid.RowSpan="2">
+            <TextBlock Text="Выберите маршрут:" Margin="0 10 0 0"/>
+            <ComboBox x:Name="RouteList" Height="20" HorizontalAlignment="Left" Width="140" Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding RouteNavigation.Id}"/>
+                            <TextBlock Text="{Binding RouteNavigation.StartCity}"/>
+                            <TextBlock Text="{Binding RouteNavigation.EndCity}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Text="Выберите водителя:"/>
+            <ComboBox x:Name="DriverList" Height="20" Width="140" HorizontalAlignment="Left" Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Driver.Id}"/>
+                            <TextBlock Text="{Binding Driver.Surname}"/>
+                            <TextBlock Text="{Binding Driver.Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Text="Выберите автобус:"/>
+            <ComboBox x:Name="BusList" Height="20" Width="140" HorizontalAlignment="Left" Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Bus.Id}"/>
+                            <TextBlock Text="{Binding Bus.Title}"/>
+                            <TextBlock Text="{Binding Bus.SeatsCount}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,0,144" Grid.RowSpan="2">
+            <TextBlock Text="Введите дату и время начала:" Margin="0 10 0 0"/>
+            <ComboBox x:Name="StartDateList" Height="20" Width="140" HorizontalAlignment="Left" Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding DatetimeStart}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Text="Введите дату и время окончания:" Margin="0 10 0 0"/>
+            <ComboBox x:Name="EndDateList" Height="20" Width="140" HorizontalAlignment="Left" Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding DatetimeEnd}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Button x:Name="CreateBtn" Click="CreateBtn_Click" Content="Создать"/>
+            <Button Content="Отменить" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

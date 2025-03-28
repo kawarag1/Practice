@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -89,9 +90,7 @@ namespace Practice.Pages
 
         private void Quit_Click(object sender, RoutedEventArgs e)
         {
-            UserHelper.passenger = null;
-            NavigationService.GoBack();
-            NavigationService.GoBack();
+            Quit();
         }
 
         private void CancelTicket_Click(object sender, RoutedEventArgs e)
@@ -113,6 +112,19 @@ namespace Practice.Pages
         {
             PassengerTickets.ItemsSource = null;
             PassengerTickets.ItemsSource = UserHelper.passenger.Tickets.ToList();
+        }
+
+        private void DeleteAcc_Click(object sender, RoutedEventArgs e)
+        {
+            PassengerService.DeleteProfile(UserHelper.passenger);
+            Quit();
+        }
+
+        private void Quit()
+        {
+            UserHelper.passenger = null;
+            NavigationService.GoBack();
+            NavigationService.GoBack();
         }
     }
 }
