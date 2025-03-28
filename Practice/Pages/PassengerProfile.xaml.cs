@@ -86,5 +86,12 @@ namespace Practice.Pages
                 VisiblePassword.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            UserHelper.passenger = null;
+            NavigationService.GoBack();
+            NavigationService.GoBack();
+        }
     }
 }

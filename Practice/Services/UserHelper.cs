@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Practice.Models;
 
-namespace Practice
+namespace Practice.Services
 {
     public class UserHelper
     {

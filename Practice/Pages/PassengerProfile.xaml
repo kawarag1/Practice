@@ -19,6 +19,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button x:Name="CheckTickets" Content="Мои билеты" Click="CheckTickets_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 10 0 0"/>
+        <Button x:Name="Quit" Content="Выйти из аккаунта" Click="Quit_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 60 0 0" Width="140"/>
         <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="PassengerTickets" Visibility="Hidden">
             <ListView.ItemTemplate>
                 <DataTemplate>
