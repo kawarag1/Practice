@@ -93,5 +93,26 @@ namespace Practice.Pages
             NavigationService.GoBack();
             NavigationService.GoBack();
         }
+
+        private void CancelTicket_Click(object sender, RoutedEventArgs e)
+        {
+            if (PassengerTickets.SelectedItem == null)
+            {
+                MessageBox.Show("Вы не выбрали билет!");
+            }
+            else
+            {
+                TicketService.CancelTicket(UserHelper.passenger);
+                PassengerTickets.ItemsSource = null;
+                PassengerTickets.ItemsSource = UserHelper.passenger.Tickets.ToList();
+                MessageBox.Show("Успешно!");
+            }
+        }
+
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PassengerTickets.ItemsSource = null;
+            PassengerTickets.ItemsSource = UserHelper.passenger.Tickets.ToList();
+        }
     }
 }

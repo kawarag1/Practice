@@ -42,11 +42,12 @@ namespace Practice.Pages
                     NavigationService.Navigate(new PassengerMain());
                     UserHelper.passenger = pass;
                 }
-                else
+                else if (staff.RoleId == 1)
                 {
                     NavigationService.Navigate(new StaffMain());
                     UserHelper.employee = staff;
                 }
+                
             }
             catch (Exception ex) 
             {

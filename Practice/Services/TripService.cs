@@ -22,6 +22,18 @@ namespace Practice.Services
                     .OrderBy(t => t.Id)
                     .ToList();
             }
-        }        
+        }
+        
+        public async static void DeleteTrip(Trip trip)
+        {
+            using (PracticeContext context = new PracticeContext())
+            {
+                context.Trips.Remove(trip);
+                await context.Tickets
+                    .Where(t => t.TripId == trip.Id)
+                    .ExecuteDeleteAsync();
+                await context.SaveChangesAsync();
+            }
+        }
     }
 }
