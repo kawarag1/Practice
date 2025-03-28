@@ -48,16 +48,7 @@ namespace Practice.Pages
                     Trip selectedtrip = (Trip)ViewTrips.SelectedItem;
                     TripService.DeleteTrip(selectedtrip);
                     MessageBox.Show("Успешно!");
-                    using (PracticeContext context = new PracticeContext())
-                    {
-                        ViewTrips.ItemsSource = null;
-                        ViewTrips.ItemsSource = context.Trips
-                    .Include(t => t.Bus)
-                    .Include(t => t.Driver)
-                    .Include(t => t.RouteNavigation)
-                    .OrderBy(t => t.Id)
-                    .ToList();
-                    }
+                    LoadData();
                 }
             }
             catch (Exception ex)
