@@ -93,8 +93,8 @@
             <TextBlock Text="Ваш логин:"/>
             <TextBox x:Name="LoginBox" Width="140" HorizontalAlignment="Left"/>
             <TextBlock Text="Ваш пароль:"/>
-            <PasswordBox x:Name="PasswordUserBox" Width="140" HorizontalAlignment="Left" Visibility="Visible"/>
-            <TextBox x:Name="VisiblePassword" Width="140" Grid.Column="2" Visibility="Collapsed" HorizontalAlignment="Left"/>
+            <PasswordBox x:Name="PasswordUserBox" Width="140" HorizontalAlignment="Left" Visibility="Visible" PasswordChanged="PasswordUserBox_PasswordChanged"/>
+            <TextBox x:Name="VisiblePassword" Width="140" Grid.Column="2" Visibility="Collapsed" HorizontalAlignment="Left" TextChanged="VisiblePassword_TextChanged"/>
             <Button x:Name="UpdateProfileBtn" Content="Обновить" Click="UpdateProfileBtn_Click" HorizontalAlignment="Left"/>
             <Button x:Name="CheckPassword" Content="Показать пароль" HorizontalAlignment="Left" Click="CheckPassword_Click"/>
         </StackPanel>

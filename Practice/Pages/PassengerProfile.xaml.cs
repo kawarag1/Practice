@@ -64,7 +64,15 @@ namespace Practice.Pages
         {
             try
             {
+                UserHelper.passenger.Name = NameBox.Text;
+                UserHelper.passenger.Surname = SurnameBox.Text;
+                UserHelper.passenger.Patronymic = PatronymicBox.Text;
+                UserHelper.passenger.PassportId = Convert.ToInt64(PassportBox.Text);
+                UserHelper.passenger.Login = LoginBox.Text;
+                UserHelper.passenger.Password = PasswordUserBox.Password.ToString();
                 PassengerService.UpdateProfile(UserHelper.passenger);
+                MessageBox.Show("Успешно!");
+                LoadData();
             }
             catch (Exception ex)
             {
@@ -125,6 +133,16 @@ namespace Practice.Pages
             UserHelper.passenger = null;
             NavigationService.GoBack();
             NavigationService.GoBack();
+        }
+
+        private void VisiblePassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PasswordUserBox.Password = VisiblePassword.Text;
+        }
+
+        private void PasswordUserBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            VisiblePassword.Text = PasswordUserBox.Password;
         }
     }
 }
