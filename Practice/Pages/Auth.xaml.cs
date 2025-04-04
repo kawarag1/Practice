@@ -39,13 +39,15 @@ namespace Practice.Pages
                 }
                 else if (pass != null)
                 {
-                    NavigationService.Navigate(new PassengerMain());
                     UserHelper.passenger = pass;
+                    NavigationService.Navigate(new PassengerMain());
+                    
                 }
                 else if (staff.RoleId == 1)
                 {
-                    NavigationService.Navigate(new StaffMain());
                     UserHelper.employee = staff;
+                    NavigationService.Navigate(new StaffMain());
+                    
                 }
                 
             }
