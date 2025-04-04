@@ -23,6 +23,20 @@ namespace Practice.Services
                     .ToList();
             }
         }
+
+        public static Trip? TripWhere(Trip? trip)
+        {
+            using (PracticeContext context = new PracticeContext())
+            {
+                return context.Trips
+                    .Include(t => t.Bus)
+                    .Include(t => t.Driver)
+                    .Include(t => t.RouteNavigation)
+                    .OrderBy(t => t.Id)
+                    .Where(t => t.BusId == trip.BusId)
+                    .FirstOrDefault();
+            }
+        }
         
         public async static void DeleteTrip(Trip trip)
         {

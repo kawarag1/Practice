@@ -21,11 +21,12 @@ namespace Practice.Windows
     /// </summary>
     public partial class ChangeTripWindow : Window
     {
-        Trip trip;
+        Trip? trip_;
         public ChangeTripWindow(Trip _trip)
         {
             InitializeComponent();
-            trip = _trip;
+            trip_ = _trip;
+            LoadAllData();
             LoadData();
         }
 
@@ -36,12 +37,21 @@ namespace Practice.Windows
 
         private void LoadData()
         {
-            BusList.SelectedItem = trip.BusId;
-            RouteList.SelectedItem = trip.Route;
-            DriverList.SelectedItem = trip.Driver;
-            StartDateList.SelectedItem = trip.DatetimeStart;
-            EndDateList.SelectedItem = trip.DatetimeEnd;
+            Trip? trip = TripService.TripWhere(trip_);
+            BusList.SelectedItem = BusList.Items.Cast<Trip>().FirstOrDefault(x => x.BusId == trip.BusId);
+            RouteList.SelectedItem = RouteList.Items.Cast<Trip>().FirstOrDefault(x => x.Route == trip.Route);
+            DriverList.SelectedItem = DriverList.Items.Cast<Trip>().FirstOrDefault(x => x.DriverId == trip.DriverId);
+            StartDateList.SelectedItem = StartDateList.Items.Cast<Trip>().FirstOrDefault(x => x.DatetimeStart == trip.DatetimeStart);
+            EndDateList.SelectedItem = EndDateList.Items.Cast<Trip>().FirstOrDefault(x => x.DatetimeEnd == trip.DatetimeEnd);
 
+        }
+        private void LoadAllData()
+        {
+            DriverList.ItemsSource = TripService.Trip();
+            RouteList.ItemsSource = TripService.Trip();
+            StartDateList.ItemsSource = TripService.Trip();
+            EndDateList.ItemsSource = TripService.Trip();
+            BusList.ItemsSource = TripService.Trip();
         }
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
@@ -63,7 +73,6 @@ namespace Practice.Windows
                 TripService.UpdateTrip(trip);
                 MessageBox.Show("Успешно!");
                 Close();
-                LoadData();
             }
             catch (Exception ex)
             {

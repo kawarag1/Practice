@@ -18,7 +18,7 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,0,144" Grid.RowSpan="2">
             <TextBlock Text="Выберите маршрут:" Margin="0 10 0 0"/>
-            <ComboBox x:Name="RouteList" Height="20" HorizontalAlignment="Left" Width="140" Margin="5">
+            <ComboBox x:Name="RouteList" Height="20" HorizontalAlignment="Left" Width="140" Margin="5" >
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">

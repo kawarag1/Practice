@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace Practice.Pages
     /// </summary>
     public partial class StaffMain : Page
     {
+        Trip trip;
         public StaffMain()
         {
             InitializeComponent();
@@ -71,8 +73,8 @@ namespace Practice.Pages
             }
             else
             {
-                Trip trip = (Trip)ViewTrips.SelectedItem;
-                ChangeTripWindow window = new ChangeTripWindow(trip);
+                Trip selected_trip = (Trip)ViewTrips.SelectedItem;
+                ChangeTripWindow window = new ChangeTripWindow((Trip)ViewTrips.SelectedItem);
                 window.ShowDialog();
             }
         }
