@@ -78,5 +78,11 @@ namespace Practice.Pages
                 window.ShowDialog();
             }
         }
+
+        private void QuitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            UserHelper.passenger = null;
+            NavigationService.GoBack();
+        }
     }
 }
