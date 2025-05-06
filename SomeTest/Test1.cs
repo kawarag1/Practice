@@ -64,5 +64,35 @@ namespace SomeTest
             }
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void DelTest()
+        {
+            string login = "1234";
+            string password = "1234";
+            bool result = false;
+            var _result = PassengerService.Authorization(login, password);
+            if (_result == null)
+            {
+                Assert.IsFalse(result);
+            }
+            else
+            {
+                PassengerService.DeleteProfile(_result);
+            }
+            
+            var _newResult = PassengerService.Authorization(login, password);
+            if (_newResult == null)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+
+            Assert.IsTrue(result);
+
+        }
     }
 }
