@@ -9,7 +9,7 @@ using Practice.Models;
 
 namespace Practice.Services
 {
-    internal class PassengerService
+    public class PassengerService
     {
         public static void CheckLogin(string login)
         {
